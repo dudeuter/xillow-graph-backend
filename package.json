@@ -1,15 +1,17 @@
 {
   "name": "graph",
   "version": "1.0.0",
-  "description": "",
-  "author": "Jialu Deng",
+  "description": "backend for Jialu Deng's FEC project",
+  "author": "Jialu Deng / Samuel Deuter",
   "license": "",
   "engines": {
     "node": "^8.10.0"
   },
   "scripts": {
-    "start": "nodemon ./server/index.js",
-    "webpack": "webpack -d -w",
+    "start": "node ./server/index.js",
+    "start-dev": "nodemon ./server/index.js",
+    "webpack:build": "webpack",
+    "webpack:watch": "webpack -d -w",
     "webpack:server": "webpack-dev-server",
     "test": "jest",
     "test:watch": "jest --watch",
