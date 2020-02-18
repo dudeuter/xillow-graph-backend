@@ -13,30 +13,30 @@ CREATE TABLE service.cities (
 CREATE TABLE service.neighborhoods (
   id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  city INTEGER NOT NULL REFERENCES service.cities(id)
+  city_id INTEGER NOT NULL REFERENCES service.cities(id)
 );
 
 CREATE TABLE service.homes (
   id SERIAL NOT NULL PRIMARY KEY,
   address VARCHAR(255) NOT NULL,
-  neighborhood INTEGER NOT NULL REFERENCES service.neighborhoods(id),
-  city INTEGER NOT NULL REFERENCES service.cities(id)
+  neighborhood_id INTEGER NOT NULL REFERENCES service.neighborhoods(id),
+  city_id INTEGER NOT NULL REFERENCES service.cities(id)
 );
 
-CREATE TABLE service.citiesPlot (
-  city INTEGER NOT NULL REFERENCES service.cities(id),
+CREATE TABLE service.cities_plot (
+  city_id INTEGER NOT NULL REFERENCES service.cities(id),
   estimate MONEY NOT NULL,
   date DATE NOT NULL
 );
 
-CREATE TABLE service.neighborhoodsPlot (
-  neighborhood INTEGER NOT NULL REFERENCES service.neighborhoods(id),
+CREATE TABLE service.neighborhoods_plot (
+  neighborhood_id INTEGER NOT NULL REFERENCES service.neighborhoods(id),
   estimate MONEY NOT NULL,
   date DATE NOT NULL
 );
 
-CREATE TABLE service.homesPlot (
-  home INTEGER NOT NULL REFERENCES service.homes(id),
+CREATE TABLE service.homes_plot (
+  home_id INTEGER NOT NULL REFERENCES service.homes(id),
   estimate MONEY NOT NULL,
   date DATE NOT NULL,
   listed BOOLEAN DEFAULT false,
