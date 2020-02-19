@@ -19,6 +19,7 @@ CREATE TABLE service.neighborhoods (
 CREATE TABLE service.homes (
   id SERIAL NOT NULL PRIMARY KEY,
   address VARCHAR(255) NOT NULL,
+  estimate MONEY NOT NULL,
   neighborhood_id INTEGER NOT NULL REFERENCES service.neighborhoods(id),
   city_id INTEGER NOT NULL REFERENCES service.cities(id)
 );
