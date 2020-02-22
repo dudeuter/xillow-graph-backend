@@ -1,3 +1,3 @@
-export default {
-  user: 'USERNAME',
+module.exports = {
+  user: 'dudeuter',
 };
