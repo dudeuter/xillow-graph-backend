@@ -7,6 +7,8 @@ const PORT = 3000;
 app.use(morgan('dev'));
 app.use(express.static('public'));
 
+app.use('/api', require('./api/router'));
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`SERVER LISTENING ON PORT ${PORT}...\n`);
