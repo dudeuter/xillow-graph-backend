@@ -24,12 +24,12 @@ router.delete('/:id', (req, res) => {
 
 // GET /api/neighborhoods/:id/plot
 router.get('/:id/plot', (req, res) => {
-  res.end(`endpoint: ${req.baseUrl}, ${req.method}, ${JSON.stringify(req.params)}`); 
+  res.end(`endpoint: ${req.baseUrl}, ${req.method}, ${JSON.stringify(req.params)}`);
 });
 
 // POST /api/neighborhoods/:id/plot
 router.post('/:id/plot', (req, res) => {
-  res.end(`endpoint: ${req.baseUrl}, ${req.method}, ${JSON.stringify(req.params)}`); 
+  res.end(`endpoint: ${req.baseUrl}, ${req.method}, ${JSON.stringify(req.params)}`);
 });
 
 module.exports = router;
