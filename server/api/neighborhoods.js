@@ -1,4 +1,5 @@
 const express = require('express');
+const { neighborhoods } = require('../../database/models/index');
 
 const router = express.Router();
 
@@ -9,7 +10,21 @@ router.post('', (req, res) => {
 
 // GET /api/neighborhoods/:id
 router.get('/:id', (req, res) => {
-  res.end(`endpoint: ${req.baseUrl}, ${req.method}, ${JSON.stringify(req.params)}`);
+  const id = parseInt(req.params.id, 10);
+
+  neighborhoods
+    .getById(id)
+    .then((data) => {
+      res.status(200);
+      res.send(JSON.stringify(data));
+    })
+    .catch((err) => {
+      res.status(500);
+      res.send(JSON.stringify(err));
+    })
+    .finally(() => {
+      res.end();
+    });
 });
 
 // PATCH /api/neighborhoods/:id
