@@ -29,7 +29,10 @@ module.exports = {
     return Promise.reject(new Error('model method not implemented yet'));
   },
   getPlotsById(id) {
-    // TODO
-    return Promise.reject(new Error('model method not implemented yet'));
+    return (
+      client
+        .query('SELECT * FROM service.homes_plot WHERE home_id = $1;', [id])
+        .then((data) => data.rows)
+    );
   },
 };
