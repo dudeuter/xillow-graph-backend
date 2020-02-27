@@ -29,5 +29,3 @@ module.exports = {
     );
   },
 };
-
-module.exports.getPlotsById(50).then((data) => { console.log(data); });
