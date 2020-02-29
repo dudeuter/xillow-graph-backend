@@ -1,14 +1,15 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 const { user, host } = require('./credentials');
 
-const client = new Client({
-  user,
+const pool = new Pool({
   host,
   database: 'graph',
+  user,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
 });
 
-client.connect();
-
 module.exports = {
-  client,
+  pool,
 };

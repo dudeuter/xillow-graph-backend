@@ -1,4 +1,4 @@
-const { client } = require('../../database/index');
+const { pool } = require('../../database/index');
 
 const query = `
 SELECT
@@ -58,7 +58,7 @@ WHERE service.homes.id = $1;
 module.exports = {
   getById(id) {
     return (
-      client
+      pool
         .query(query, [id])
         .then((data) => {
           const result = data.rows[0];

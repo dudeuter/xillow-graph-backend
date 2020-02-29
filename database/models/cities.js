@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { client } = require('../../database/index');
+const { pool } = require('../../database/index');
 
 module.exports = {
   insert(city) {
@@ -7,7 +7,7 @@ module.exports = {
   },
   getById(id) {
     return (
-      client
+      pool
         .query('SELECT * FROM service.cities WHERE id = $1 LIMIT 1;', [id])
         .then((data) => data.rows[0])
     );
@@ -23,7 +23,7 @@ module.exports = {
   },
   getPlotsById(id) {
     return (
-      client
+      pool
         .query('SELECT * FROM service.cities_plot WHERE city_id = $1;', [id])
         .then((data) => data.rows)
     );
