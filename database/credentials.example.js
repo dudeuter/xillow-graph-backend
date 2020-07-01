@@ -1,3 +1,4 @@
 module.exports = {
-  user: 'dudeuter',
+  user: 'USERNAME',
+  host: 'HOSTNAME',
 };
