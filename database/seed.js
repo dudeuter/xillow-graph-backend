@@ -86,7 +86,7 @@ client.connect()
   .finally(() => client.end());
 // DONE SETTING UP TABLES
 
-class DataBoi {
+class DataProducer {
   constructor() {
     this.address = [];
     this.estimate = [];
@@ -128,24 +128,24 @@ class DataBoi {
   }
 }
 
-const myboi = new DataBoi();
+const producer = new DataProducer();
 
 const anotherClient = new Client({
   host: 'localhost',
   database: 'graph',
   user,
 });
+
 const cursor = anotherClient.connect();
 
-while (myboi.generated !== CITIES_TOTAL) {
-  console.log('poke', myboi.consumed);
+while (producer.generated !== CITIES_TOTAL) {
   for (let i = 0; i < 10000; i += 1) {
-    myboi.addRow();
+    producer.addRow();
   }
 
   const {
     address, estimate, neighborhood_id, city_id,
-  } = myboi.getData();
+  } = producer.getData();
 
   cursor.then(anotherClient.query(
     'INSERT INTO service.homes (address, estimate, neighborhood_id, city_id) SELECT * FROM UNNEST ($1::text[], $2::money[], $3::int[], $4::int[])',
