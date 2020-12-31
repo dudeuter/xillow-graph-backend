@@ -14,7 +14,7 @@ for (let i = 0; i < homes; i += 1) {
   const points = 1 + Math.floor(Math.random() * 5);
   for (let j = 0; j < points; j += 1) {
     const date = new Date(faker.date.past());
-    ws.write(`${i + 1},${100000 + Math.floor(Math.random() * 50) * 100000},${date.getFullYear()}-${1 + date.getMonth()}-${date.getDate()},${Math.random() > .95},${Math.random() > .95}\n`);
+    ws.write(`${i + 1},${100000 + Math.floor(Math.random() * 50) * 100000},${date.getFullYear()}-${1 + date.getMonth()}-${date.getDate()},${Math.random() > 0.95},${Math.random() > 0.95}\n`);
   }
   bar.increment(1);
 }
