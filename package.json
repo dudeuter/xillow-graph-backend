@@ -10,6 +10,8 @@
   "scripts": {
     "start": "node ./server/index.js",
     "start-dev": "nodemon ./server/index.js",
+    "seed": "node ./database/seed.js",
+    "seed:gencsv": "node ./database/seedcsv.js",
     "webpack:build": "webpack",
     "webpack:watch": "webpack -d -w",
     "webpack:server": "webpack-dev-server",
